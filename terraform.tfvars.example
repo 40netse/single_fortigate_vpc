@@ -1,6 +1,6 @@
 
 aws_region                  = "us-west-2"
-availability_zone1          = "a"
+availability_zone           = "a"
 
 #
 # Subnet bits = number of bits used in the cidr for subnet.
