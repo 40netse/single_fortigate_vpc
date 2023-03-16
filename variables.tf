@@ -43,14 +43,6 @@ variable "public_description" {
 variable "private_description" {
     description = "Description Private Subnet TAG"
 }
-variable "vpc_tag_key" {
-    description = "Random Tag Key to place on VPC for data ID"
-    default     = ""
-}
-variable "vpc_tag_value" {
-    description = "Random Tag Value to place on VPC for data ID"
-    default     = ""
-}
 variable "cidr_for_access" {
   description = "CIDR to use for security group access"
 }

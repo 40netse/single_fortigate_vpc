@@ -5,14 +5,10 @@ locals {
   }
 }
 
-locals {
-    id_tag = var.vpc_tag_key != "" ? tomap({(var.vpc_tag_key) = (var.vpc_tag_value)}) : {}
-}
-
 provider "aws" {
   region     = var.region
   default_tags {
-    tags = merge(local.common_tags, local.id_tag)
+    tags = local.common_tags
   }
 }
 
