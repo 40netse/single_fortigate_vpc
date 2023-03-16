@@ -10,7 +10,7 @@ locals {
 }
 
 provider "aws" {
-  region     = var.aws_region
+  region     = var.region
   default_tags {
     tags = merge(local.common_tags, local.id_tag)
   }
@@ -20,7 +20,7 @@ provider "aws" {
 # Local variables for splitting up the subnets and assigning host IP's from within the cidr block
 #
 locals {
-  availability_zone = "${var.aws_region}${var.availability_zone}"
+  availability_zone = "${var.region}${var.availability_zone}"
 }
 
 locals {
@@ -130,9 +130,9 @@ module "allow_public_subnets" {
 module "base-vpc" {
   source = "git::https://github.com/40netse/base_vpc_single_az.git"
 
-  aws_region                 = var.aws_region
-  environment                = var.env
-  customer_prefix            = var.cp
+  region                     = var.region
+  env                        = var.env
+  cp                         = var.cp
   availability_zone          = var.availability_zone
   vpc_name_security          = var.vpc_name_security
   vpc_cidr_security          = var.vpc_cidr_security
@@ -141,9 +141,6 @@ module "base-vpc" {
   private_subnet_index       = var.private_subnet_index
   public_description         = var.public_description
   private_description        = var.private_description
-  vpc_tag_key                = var.vpc_tag_key
-  vpc_tag_value              = var.vpc_tag_value
-
 }
 
 resource "aws_default_route_table" "default_route" {
@@ -160,7 +157,6 @@ module "fortigate" {
   aws_ec2_instance_name       = "${var.cp}-${var.env}-${var.vpc_name_security}-${var.fortigate_instance_name}"
   availability_zone           = local.availability_zone
   enable_private_interface    = true
-  enable_sync_interface       = false
   enable_hamgmt_interface     = false
   enable_public_ips           = true
   enable_mgmt_public_ips      = false

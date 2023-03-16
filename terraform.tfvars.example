@@ -1,5 +1,5 @@
 
-aws_region                  = "us-west-2"
+region                      = "us-west-2"
 availability_zone           = "a"
 
 #
@@ -30,7 +30,7 @@ vpc_name_security           = "security"
 vpc_cidr_security           = "10.0.0.0/16"
 
 fgt_admin_password          = "Texas4me!"
-fortios_version             = "7.2.1"
+fortios_version             = "7.2.4"
 fgt_host_ip                 = 10
 
 public_description         = "public"
