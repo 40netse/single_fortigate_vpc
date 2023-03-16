@@ -258,6 +258,7 @@ data "template_file" "web_userdata" {
 # East Linux Instance for Generating East->West Traffic
 #
 module "aws_linux_instance" {
+  depends_on                  = [ time_sleep.wait_5_minutes]
   source                      = "git::https://github.com/40netse/terraform-modules.git//aws_ec2_instance"
   aws_ec2_instance_name       = "${var.cp}-${var.env}-${var.linux_instance_name}"
   enable_public_ips           = false
