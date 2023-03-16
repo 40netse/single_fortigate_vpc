@@ -170,6 +170,20 @@ module "fortigate" {
   userdata_rendered           = data.template_file.fgt_userdata_paygo.rendered
 }
 
+
+resource "null_resource" "previous" {}
+
+resource "time_sleep" "wait_5_minutes" {
+  depends_on = [module.fortigate]
+
+  create_duration = "5m"
+}
+
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_5_minutes]
+}
+
 #
 # Point the private route table default route to the Fortigate Private ENI
 #
