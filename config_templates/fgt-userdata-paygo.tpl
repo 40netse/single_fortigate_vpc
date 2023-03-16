@@ -48,14 +48,14 @@ config firewall vip
 edit "vip_to_linux_ssh"
 set extintf "port1"
 set portforward enable
-set mappedip "10.0.1.11"
+set mappedip "10.0.2.11"
 set extport 2222
 set mappedport 22
 next
 edit "vip_to_linux_http"
 set extintf "port1"
 set portforward enable
-set mappedip "10.0.1.11"
+set mappedip "10.0.2.11"
 set extport 8080
 set mappedport 80
 next

@@ -10,7 +10,7 @@ subnet_bits                 = 8
 
 #
 # index in the subnet in the cidr range.
-# e.g. index 1 in 10.0.0.0/16 is 10.0.1.0/24
+# e.g. index 1 in 10.0.1.0/16 is 10.0.2.0/24
 #
 public_subnet_index         = 1
 private_subnet_index        = 2
@@ -24,8 +24,8 @@ keypair                     = ""
 # cp (customer_prefix) and env (environment) prepended to all resources created by the template.
 # Used for identification. e.g. "<customer_prefix>-<prod/test/dev>"
 #
-cp                          = "prefix"
-env                         = "env"
+cp                          = "mdw"
+env                         = "test"
 vpc_name_security           = "security"
 vpc_cidr_security           = "10.0.0.0/16"
 
