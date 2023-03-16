@@ -36,9 +36,6 @@ fgt_host_ip                 = 10
 public_description         = "public"
 private_description        = "private"
 
-vpc_tag_key                 = "id-tag-key"
-vpc_tag_value               = "id-tag-value"
-
 #
 # Fortigate Variables
 # cidr_for_access goes into the inbound security group for the Fortigates. Current value is open. It may be wise to
